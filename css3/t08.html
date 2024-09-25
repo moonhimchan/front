@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t08.html(자식선택자)</title>
+  <style>
+    li {
+      background-color: darkgoldenrod;
+    }
+    header nav ul ol li {
+      background-color: darkcyan;
+    }
+    header > nav > ol > ul > li {
+      background-color: darkcyan;
+    }
+    dd {
+      color: beige;
+      background-color: blueviolet;
+    }
+    #cat > dl > dd {
+      color: beige;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h2>자손선택자</h2>
+  <header>
+    <nav>
+      <ul>
+        <li>sub1</li>
+        <li>sub2
+          <ol>
+            <li>subsub1</li>
+            <li>subsub2</li>
+            <li>subsub3</li>
+          </ol>
+        </li>
+        <li>sub3</li>
+        <li>sub4</li>
+      </ul>
+      <ol>
+        <li>sub11</li>
+        <li>sub12</li>
+        <ul>
+          <li>subsub1</li>
+          <li>subsub2</li>
+          <li>subsub3</li>
+        </ul>
+        <li>sub13</li>
+        <li>sub14</li>
+      </ol>
+    </nav>
+    <p>1.이곳은 p태그입니다.</p>
+    <p><span>2.이곳은 p태그입니다.</span></p>
+    <p>3.이곳은 p태그입니다.</p>
+    <p>4.이곳은 p태그입니다.</p>
+  </header>
+  <section>
+    <article id="dog">
+      <h2>강아지에 관하여</h2>
+      <dl>
+        <dt>강아지 종류</dt>
+        <dd>독일레퍼드</dd>
+        <dd>시베리안 허스키</dd>
+        <dd>골든 리트리버</dd>
+        <dd>닥크훈트</dd>
+        <dd>포메라이안</dd>
+      </dl>
+    </article>
+    <article id="cat">
+      <h2>고양이에 관하여</h2>
+      <dl>
+        <dt>고양이 종류</dt>
+        <dd>페르시아고양이</dd>
+        <dd>메인쿤</dd>
+        <dd>브리티시 숏헤어</dd>
+        <dd>스핑크스 고양이</dd>
+        <dd>먼치킨 고양이</dd>
+      </dl>
+    </article>
+  </section>
+</body>
+</html>

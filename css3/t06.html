@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t06.html(클래스선택자, 자손선택자)</title>
+  <link type="text/css" rel="stylesheet" href="t03.css">
+  <style>
+    p {font-size: 10pt;}
+    div {font-size: 3pt;}
+    h1 {font-size: 25pt;}
+    /* p {font-size: 30pt;} */
+    h4 {
+      color: rgb(226, 12, 12); 
+      font-size: 20pt;
+    }
+    /* p#f25 {font-size: 35px;} */
+    #f25 {
+      font-size: 35px;
+      color: red;
+    }
+    p {color: green;}
+    /* .f20 {font-size: 40px;} */
+    p.f20 {font-size: 20px;}
+    div p.f20 {
+      font-size: 20px;
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS 연습</h2>
+  <hr/>
+  <p><font size="1">p태그 연습1</font></p>
+  <p>p태그 연습2</p>
+  <p id="f25">p태그 연습3</p>
+  <p>p태그 연습4</p>
+  <p class="f20">p태그 연습5</p>
+  <p>p태그 연습6</p>
+  <p class="f20">p태그 연습7</p>
+  <div>div태그 연습1</div>
+  <div>div태그 연습2</div>
+  <div>div태그 연습3</div>
+  <h1 style="font-size: 50pt;">제목 1</h1>
+  <h4>제목4</h4>
+  <h4 class="f20">제목4</h4>
+  <div>
+    <p class="f20">안녕1</p>
+    <p>안녕2</p>
+    <p class="f20">안녕3</p>
+  </div>
+</body>
+</html>

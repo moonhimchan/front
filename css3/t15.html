@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t15.html</title>
+  <style>
+    #policy:target {
+      background-color: green;
+      color: aliceblue;
+    }
+    input:checked+label {
+      background-color: aqua;
+    }
+    button:disabled {
+      background-color: #999;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h2>회원 가입</h2>
+  <form name="myform" action="">
+    <p>
+      <input type="radio" name="gender" id="gender1"><label for="gender1">남자</label>
+      <input type="radio" name="gender" id="gender2"><label for="gender2">여자</label>
+    </p>
+    <p><a href="#policy">약관보기</a></p>
+    <p>
+      <input type="checkbox" name="agree" id="agree"><label for="agree">동의</label>
+    </p>
+    <p><button disabled>전송</button></p>
+    <hr/>
+    <div id="policy">
+      <h2>약관안내</h2>
+    </div>
+  </form>
+</body>
+</html>

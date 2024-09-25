@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t10.html(속성선택자 [])</title>
+  <style>
+    /* 전체선택자 : * */
+    /* 
+    * {
+      font-size: 15pt;
+    }
+     */
+    body {
+      font-size: 20pt;
+    }
+    a {
+      text-decoration: none;
+      color:blue;
+    }
+    a:hover {
+      text-decoration: underline;
+      color:brown;
+    }
+    a:active {
+      text-decoration: overline;
+    }
+/* 
+    [target] {
+      color: chartreuse;
+    }
+     */
+    [target="_blank"] {
+      text-decoration: line-through;
+    }
+    .inner_sm {
+      background-color: aqua;
+    }
+    [class^="inner"] {
+      font-weight: bolder;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <p>
+      <a href="#" class="inner_sm">자신링크</a> |
+      <a href="https://www.naver.com" target="_blank">네이버</a> |
+      <a href="https://www.daum.net" target="_blank">다음</a> |
+      <a href="https://www.google.com" target="_self" class="inner_big">구글</a>
+    </p>
+  </nav>
+</body>
+</html>

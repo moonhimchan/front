@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t11.html(pseudo선택자(:))</title>
+  <style>
+    h2:hover {
+      background-color: gray;
+    }
+    :link {
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: bolder;
+    }
+    :visited {
+      color: green;
+    }
+    a:focus {
+      background-color: #000;
+      color: #fff;
+    }
+    a:active {
+      color: red;
+    }
+    input, button {
+      background-color: gold;
+    }
+    [type="text"], [type="password"] {
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pseudo-Class Selector</h2>
+  <p>
+    <a href="">어디로갈까요</a>
+  </p>
+  <form action="">
+    성명 : <input type="text" name="name"><br/>
+    비밀번호 : <input type="password" name="pwd"><br/>
+    <button>전송</button>
+  </form>
+</body>
+</html>
