@@ -1,0 +1,31 @@
+/*t18.css*/
+body {
+  margin: 0;
+  font-size: 0.8em;
+}
+.container {
+  display: grid;
+  /*grid-template-columns: auto auto auto auto;*/
+  /*grid-template-columns: 180px auto 150px;*/
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 300px 300px 300px;
+  /*justify-content: space-around;*/
+  /*justify-content: space-evenly;*/
+  justify-content: space-between;
+}
+
+.item {
+  padding: 10px;
+  text-align: center;
+}
+
+.item1 {background-color: antiquewhite;}
+.item2 {background-color: aqua;}
+.item3 {background-color: blue;}
+.item4 {background-color: burlywood;}
+.item5 {background-color: brown;}
+.item6 {background-color: cadetblue;}
+.item7 {background-color: green;}
+.item8 {background-color: cadetblue;}
+.item9 {background-color: gold;}
+.item10 {background-color: chartreuse;}

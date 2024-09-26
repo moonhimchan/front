@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t01.html</title>
+  <style>
+    body {
+      /* margin: 0px; */
+      padding: 0px;
+    }
+    .a1, .a2, .a3 {
+      background-color: aqua;
+      display: inline;
+      /*display: inline-block;*/
+      width: 70px;
+      height: 50px;
+    }
+    .a4 {
+      background-color: aqua;
+      display: none;
+    }
+    .s1 {
+      background-color: aquamarine;
+      /*display: block;*/
+    }
+    .a5,.a6,.a7 {
+      background-color: beige;
+      border: 1px solid gray;
+      width: 200px;
+      padding: 10px;
+      margin: 0px 0px 1px;
+    }
+    .a5:hover,.a6:hover,.a7:hover {
+      background-color: coral;
+    }
+    .b1 {
+      border: 1px solid red;
+      width: 150px;
+      padding: 10px;
+      /*margin: 5px 5px;*/
+    }
+    .b1:hover, .b2:hover {
+      background-color: chartreuse;
+    }
+    .b2 {
+      border: 1px solid rebeccapurple;
+      width: 150px;
+      padding: 10px;
+      margin: 5px 5px;
+      display: inline-block;
+    }
+    /*.a8, .a9, .a10, .a11, .a12 {*/
+    .dd {
+      width: 300px;
+      height: 200px;
+      border: 1px solid gray;
+    }
+    .a8 {background-color: rgba(81, 0, 225, 0.5);}
+    /*.a9 {background-color: blue;}*/
+    /*.a9 {background: linear-gradient(to bottom,#f00, #ff0);} 'left/right/top/bottom'*/
+    /*.a9 {background: linear-gradient(to right,#f00, #fff);}*/
+    .a9 {background: linear-gradient(to right,#f00, #fff,#ff0);}
+    .a10 {background: linear-gradient(45deg ,#00f, #fff);}
+    .a11 {background: radial-gradient(circle, brown, green);}
+    .a12 {background: radial-gradient(white,brown,green);}
+    .a13 {
+      background-color: rgba(255, 0, 0, 0.3);
+      position: absolute;
+      left: 50px;
+      top: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Display 속성</h2>
+  <p>각각의 요소들을 어떻게 보여줄지를 결정한다.</p>
+  <p>
+    속성 : visibility(기본값:보이기) / hidden(감추기) / inherit(부모요소의 값을 상속받아서 사용)
+  </p>
+  <hr/>
+  <p>
+    <b>Display 속성</b>
+    none : <span class="s1">화면</span>에서 완전히 사라지게 됩니다.
+  </p>
+  <hr/>
+  <h3>사용 예제</h3>
+  <div class="a1">1.안녕</div>
+  <div class="a2">2.안녕</div>
+  <div class="a3">3.안녕</div>
+  <div class="a4">4.안녕</div>
+  <hr/>
+  <h2>Block/ Inline/ Inlin-Block</h2>
+  <div class="a5">5.<font color="red" class="b1">안녕(Inline)</font></div>
+  <div class="a6">6.<font color="blue" class="b2">안녕(Inlin-Block)</font></div>
+  <div class="a7">7.<font color="brown" class="b3">안녕(Block)</font></div>
+  <hr/>
+  <div class="dd a8">8.안녕</div>
+  <div class="dd a9">9.안녕</div>
+  <div class="dd a10">10.안녕</div>
+  <div class="dd a11">11.안녕</div>
+  <div class="dd a12">12.안녕</div>
+  <div class="dd a13">13.안녕</div>
+</body>
+</html>

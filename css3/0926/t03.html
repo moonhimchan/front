@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t03.html</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-size: 1em;
+    }
+    .container {
+      background-color: #eee;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input[type="text"],input[type="number"],input[type="password"],select,input[type="submit"] {
+      width: 100%;
+      margin: 15px 0px;
+      padding: 6px 0px;
+    }
+    input[type="radio"] {
+      margin: 15px 5px;
+    }
+    input[type="text"]:hover,input[type="number"]:hover,input[type="password"]:hover,select,input[type="submit"]:hover, select:hover {
+      background-color: #ddd;
+    }
+    .btn {
+      background-color: #ccc;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    #age {text-align: center;}
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>회원가입</h2>
+  <form>
+    <label for="name">성명</label>
+    <input type="text" name="name" id="name" placeholder="성명을 입력하세요" autofocus required />
+    <label for="age">나이</label>
+    <input type="number" name="age" id="age" value="20" size="6" min="1" max="99" maxlength="2" />
+    <label for="pwd">비밀번호</label>
+    <input type="password" name="pwd" id="pwd" />
+    <label for="gender">성별</label>
+    <input type="radio" name="gender1" id="gender2" vaiue="남자" checked />남자 &nbsp;
+    <input type="radio" name="gender2" id="gender2" vaiue="여자" />여자<br/>
+    <label for="hobby">취미</label>
+    <input type="checkbox" name="hobby" id="hobby1" checked />등산 &nbsp;
+    <input type="checkbox" name="hobby" id="hobby2" checked />낚시 &nbsp;
+    <input type="checkbox" name="hobby" id="hobby3" checked />수영 &nbsp;
+    <input type="checkbox" name="hobby" id="hobby4" checked />바이크 &nbsp;
+    <input type="checkbox" name="hobby" id="hobby5" checked />바둑<br/>
+    <label for="job">직업</label>
+    <select name="job" id="job">
+      <option>학생</option>
+      <option>회사원</option>
+      <option>공무원</option>
+      <option>군인</option>
+      <option>기타</option>
+    </select>
+    <input type="submit" value="회원가입" class="btn" />
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/*t17.css*/
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 0.8em;
+}
+  
+.container {
+  background-color: #eee;
+  height: 100vh;
+  display: flex;
+  
+  /* flex-direction: row;  기본(행 기준) */ 
+  /* flex-direction: column; */ 
+  /* flex-direction: row-reverse; */
+  /* flex-direction: column-reverse; */
+  
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /*justify-content: flex-end;*/
+  /*justify-content: center;*/
+  
+  /*justify-content:space-between;*/
+  justify-content:space-evenly;
+  
+  /*align-items: baseline;*/
+  /*align-items: center;*/
+  align-items: end;
+}
+
+.item {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+
+.item2 {
+  width: 150px;
+  height: 150px;
+}
+
+.item1 {background-color: antiquewhite;}
+.item2 {background-color: aqua;}
+.item3 {background-color: blue;}
+.item4 {background-color: burlywood;}
+.item5 {background-color: brown;}
+.item6 {background-color: cadetblue;}
+.item7 {background-color: green;}
+.item8 {background-color: cadetblue;}
+.item9 {background-color: gold;}
+.item10 {background-color: chartreuse;}

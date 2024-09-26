@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t02.html</title>
+</head>
+<body>
+  <form>
+    <fieldset>
+    <legend>폼태크 연습</legend>
+      <p>색상 : <input type="color"/></p>
+      <p>날짜 : <input type="date"/></p>
+      <p>시간 : <input type="time"/></p>
+    </fieldset>
+    <hr/>
+    <fieldset>
+      <legend>수강과목을 선택하세요</legend>
+      수강과목<input type="text" id="kwamok" list="choice">
+      <datalist id="choice">
+        <option label="국어">국어</option>
+        <option label="영어">영어</option>
+        <option label="수학">수학</option>
+        <option label="과학">과학</option>
+        <option label="체육">체육</option>
+        <option label="음악">음악</option>
+      </datalist>
+    </fieldset>
+  </form>
+</body>
+</html>
