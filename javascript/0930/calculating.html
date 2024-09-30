@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>calculating.html</title>
+  <script>
+    function fCheck() {
+  pro=myform.pro.value;
+
+  if(pro=="") {
+    alert("수식을 입력하세요");
+    myform.pro.focus();
+  }
+  else {
+  result=eval(pro);
+  myform.res.value=result;
+  }
+}
+function fCheck1() {
+  //myform.pro.value+=myform.su1.value;
+  myform.pro.value+=1;
+}
+function fCheck2() {
+  //myform.pro.value+=myform.su2.value;
+  myform.pro.value+=2;
+}
+function fCheck3() {
+  //myform.pro.value+=myform.su3.value;
+  myform.pro.value+=3;
+}
+function fCheck4() {
+  //myform.pro.value+=myform.su4.value;
+  myform.pro.value+=4;
+}
+function fCheck5() {
+  //myform.pro.value+=myform.su5.value;
+  myform.pro.value+=5;
+}
+function fCheck6() {
+  //myform.pro.value+=myform.su6.value;
+  myform.pro.value+=6;
+}
+function fCheck7() {
+  //myform.pro.value+=myform.su7.value;
+  myform.pro.value+=7;
+}
+function fCheck8() {
+  myform.pro.value+=myform.su8.value;
+}
+function fCheck9() {
+  myform.pro.value+=myform.su9.value;
+}
+function fCheck0() {
+  myform.pro.value+=myform.su0.value;
+}
+function fCheckplus() {
+  myform.pro.value+=myform.plus.value;
+}
+function fCheckmin() {
+  myform.pro.value+=myform.min.value;
+}
+function fCheckdiv() {
+  myform.pro.value+=myform.div.value;
+}
+function fCheckmul() {
+  myform.pro.value+=myform.mul.value;
+}
+function fCheckequal() {
+  myform.res.value=eval(myform.pro.value)
+}
+</script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>계산기</h2>
+    <form name="myform">
+      <p>입력<input type="text" name="pro" class="form-control" required/></p>
+      <p>결과<input type="text" name="res" class="form-control" required/></p>
+      <p><input type="button" value="출력" onclick="fCheck()" class="btn btn-primary"/></p>
+      <table align="center" padding="10px" >
+      <tr>
+        <td><input type="button" name="su7" value="7" onclick="fCheck7()" class="btn btn-success"/></td>
+        <td><input type="button" name="su8" value="8" onclick="fCheck8()" class="btn btn-success"/></td>
+        <td><input type="button" name="su9" value="9" onclick="fCheck9()" class="btn btn-success"/></td>
+        <td><input type="button" name="plus" value="+" onclick="fCheckplus()" class="btn btn-success"/></td>
+      </tr>
+      <tr>
+        <td><input type="button" name="su4" value="4" onclick="fCheck4()" class="btn btn-success"/></td>
+        <td><input type="button" name="su5" value="5" onclick="fCheck5()" class="btn btn-success"/></td>
+        <td><input type="button" name="su6" value="6" onclick="fCheck6()" class="btn btn-success"/></td>
+        <td><input type="button" name="min" value="-" onclick="fCheckmin()" class="btn btn-success"/></td>
+      </tr>
+      <tr>
+        <td><input type="button" name="su1" value="1" onclick="fCheck1()" class="btn btn-success"/></td>
+        <td><input type="button" name="su2" value="2" onclick="fCheck2()" class="btn btn-success"/></td>
+        <td><input type="button" name="su3" value="3" onclick="fCheck3()" class="btn btn-success"/></td>
+        <td><input type="button" name="mul" value="*" onclick="fCheckmul()" class="btn btn-success"/></td>
+      </tr>
+      <tr>
+        <td><input type="button" name="su0" value="0" onclick="fCheck0()" class="btn btn-success"/></td>
+        <td><input type="button" name="equal" value="=" onclick="fCheckequal()" class="btn btn-success"/></td>
+        <td><input type="button" name="div" value="/" onclick="fCheckdiv()" class="btn btn-success"/></td>
+      </tr>
+    </table>
+  </form>
+  </div>
+</body>
+</html>

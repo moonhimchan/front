@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t04.html</title>
+  <script>
+    // 앞에서 선언된 함수 호출(함수 정의 이전에 호출하면 에러발생....)
+    atom1();
+    atom2();
+  </script>
+  <script>
+    // 하나의 스크립트안에 정의된 함수 호출
+    atom1();
+    atom2();
+    
+    // 함수 정의
+    function atom1() {
+      alert("1.안녕!");
+    }
+
+    function atom2() {
+      alert("2.안녕!");
+    }
+
+    atom1();
+    atom2();
+  </script>
+</head>
+<body>
+  <h2>1.함수 호출하기</h2>
+  <script>
+    // 앞에서 선언된 함수 호출
+    atom1();
+    atom2();
+  </script>
+  <h2>2.함수 호출하기</h2>
+</body>
+</html>
