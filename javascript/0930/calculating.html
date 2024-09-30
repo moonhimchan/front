@@ -50,29 +50,55 @@ function fCheck7() {
   myform.pro.value+=7;
 }
 function fCheck8() {
-  myform.pro.value+=myform.su8.value;
+  //myform.pro.value+=myform.su8.value;
+  myform.pro.value+=8;
 }
 function fCheck9() {
-  myform.pro.value+=myform.su9.value;
+  //myform.pro.value+=myform.su9.value;
+  myform.pro.value+=9;
 }
 function fCheck0() {
-  myform.pro.value+=myform.su0.value;
+  //myform.pro.value+=myform.su0.value;
+  myform.pro.value+=0;
 }
 function fCheckplus() {
-  myform.pro.value+=myform.plus.value;
+  //myform.pro.value+=myform.plus.value;
+  myform.pro.value+="+";
 }
 function fCheckmin() {
-  myform.pro.value+=myform.min.value;
+  //myform.pro.value+=myform.min.value;
+  myform.pro.value+="-";
 }
 function fCheckdiv() {
-  myform.pro.value+=myform.div.value;
+  //myform.pro.value+=myform.div.value;
+  myform.pro.value+="/";
 }
 function fCheckmul() {
-  myform.pro.value+=myform.mul.value;
+  //myform.pro.value+=myform.mul.value;
+  myform.pro.value+="*";
 }
 function fCheckequal() {
-  myform.res.value=eval(myform.pro.value)
+  myform.res.value=eval(myform.pro.value);
 }
+function fCheckclear() {
+  myform.pro.value="";
+  myform.res.value="";
+}
+function fCheckpoint() {
+  myform.pro.value+=".";
+}
+function fChecklight() {
+  myform.pro.value+="("
+}
+function fCheckleft() {
+  myform.pro.value+=")"
+}
+function fCheckback() {
+  let process=myform.pro.value;
+  myform.pro.value=process.substring(0,process.length-1);
+}
+
+
 </script>
 </head>
 <body>
@@ -83,29 +109,36 @@ function fCheckequal() {
       <p>입력<input type="text" name="pro" class="form-control" required/></p>
       <p>결과<input type="text" name="res" class="form-control" required/></p>
       <p><input type="button" value="출력" onclick="fCheck()" class="btn btn-primary"/></p>
-      <table align="center" padding="10px" >
+      <table align="center" border="3px" padding="10px" width="200px">
       <tr>
-        <td><input type="button" name="su7" value="7" onclick="fCheck7()" class="btn btn-success"/></td>
-        <td><input type="button" name="su8" value="8" onclick="fCheck8()" class="btn btn-success"/></td>
-        <td><input type="button" name="su9" value="9" onclick="fCheck9()" class="btn btn-success"/></td>
-        <td><input type="button" name="plus" value="+" onclick="fCheckplus()" class="btn btn-success"/></td>
+        <td bgcolor="wheat" align="center"><input type="button" name="su7" value="7" onclick="fCheck7()" class="btn"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su8" value="8" onclick="fCheck8()" class="btn"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su9" value="9" onclick="fCheck9()" class="btn"/></td>
+        <td><input type="button" name="plus" value="+" onclick="fCheckplus()" class="btn"/></td>
       </tr>
       <tr>
-        <td><input type="button" name="su4" value="4" onclick="fCheck4()" class="btn btn-success"/></td>
-        <td><input type="button" name="su5" value="5" onclick="fCheck5()" class="btn btn-success"/></td>
-        <td><input type="button" name="su6" value="6" onclick="fCheck6()" class="btn btn-success"/></td>
-        <td><input type="button" name="min" value="-" onclick="fCheckmin()" class="btn btn-success"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su4" value="4" onclick="fCheck4()" class="btn"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su5" value="5" onclick="fCheck5()" class="btn"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su6" value="6" onclick="fCheck6()" class="btn"/></td>
+        <td><input type="button" name="min" value="-" onclick="fCheckmin()" class="btn"/></td>
       </tr>
       <tr>
-        <td><input type="button" name="su1" value="1" onclick="fCheck1()" class="btn btn-success"/></td>
-        <td><input type="button" name="su2" value="2" onclick="fCheck2()" class="btn btn-success"/></td>
-        <td><input type="button" name="su3" value="3" onclick="fCheck3()" class="btn btn-success"/></td>
-        <td><input type="button" name="mul" value="*" onclick="fCheckmul()" class="btn btn-success"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su1" value="1" onclick="fCheck1()" class="btn"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su2" value="2" onclick="fCheck2()" class="btn"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su3" value="3" onclick="fCheck3()" class="btn"/></td>
+        <td><input type="button" name="mul" value="*" onclick="fCheckmul()" class="btn"/></td>
       </tr>
       <tr>
-        <td><input type="button" name="su0" value="0" onclick="fCheck0()" class="btn btn-success"/></td>
-        <td><input type="button" name="equal" value="=" onclick="fCheckequal()" class="btn btn-success"/></td>
-        <td><input type="button" name="div" value="/" onclick="fCheckdiv()" class="btn btn-success"/></td>
+        <td bgcolor="gray" align="center"><input type="button" name="su0" value="0" onclick="fCheck0()" class="btn"/></td>
+        <td><input type="button" name="equal" value="=" onclick="fCheckequal()" class="btn"/></td>
+        <td><input type="button" name="div" value="/" onclick="fCheckdiv()" class="btn"/></td>
+        <td><input type="button" name="clear" value="C" onclick="fCheckclear()" class="btn"/></td>
+      </tr>
+      <tr>
+        <td><input type="button" name="point" value="." onclick="fCheckpoint()" class="btn"/></td>
+        <td><input type="button" name="light" value="(" onclick="fChecklight()" class="btn"/></td>
+        <td><input type="button" name="left" value=")" onclick="fCheckleft()" class="btn"/></td>
+        <td><input type="button" name="backspace" value="<=" onclick="fCheckback()" class="btn"/></td>
       </tr>
     </table>
   </form>

@@ -15,7 +15,7 @@
     temp=0;
 
     function calc() {
-      su=su+1;
+      su+=1;
       myform.su.value=su;
     }
 
@@ -32,8 +32,7 @@
     function memoryOutput() {
       myform.su.value=temp+myform.su.value;
     }
-
-    function
+    //function
   </script>
 </head>
 <body>
@@ -49,7 +48,7 @@
     <div><input type="text" name="tempCheck" class="form-control" readonly/></div>
     <div><input type="button" value="M + Output" onclick="memoryOutput()" class="btn btn-info mb-1 form-control"/></div>
   </p>
-</form>
+  </form>
 </div>
 </body>
 </html>
