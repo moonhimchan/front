@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>homework.html</title>
+  <script>
+  function fCheck(su) {
+    myform.pro.value += su;
+  }
+  function fcalc() {
+    myform.pro.value=eval(myform.pro.value);
+  }
+  function fclear() {
+    myform.pro.value="";
+  }
+  function fback() {
+    process=myform.pro.value;
+    myform.pro.value=process.substring(0,process.length-1);
+  }
+  </script>
+  <style>
+    body {
+      margin:0px auto;
+    }
+    .container {
+      text-align:center;
+    }  
+    .first {
+      margin:2px auto;
+      width:600px;
+      height:auto;
+      font-size:1.5em;
+    }
+    .second {
+      margin:2px auto;
+    }
+    .third {
+      margin:2px auto;
+    }
+    .fourth {
+      margin:2px auto;
+    }
+    .fifth {
+      margin:2px auto;
+    }
+    input[type="button"] {   
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      font-size: 2em;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+    <h2>계산기</h2>
+    <form name="myform">
+      <p class="first">
+        <input type="text" name="pro" class="form-control" required/>
+      </p>
+      <p class="second">
+        <input type="button" value="7" onclick="fCheck(7)" class="btn btn-secondary" required/>
+        <input type="button" value="8" onclick="fCheck(8)" class="btn btn-secondary" required/>
+        <input type="button" value="9" onclick="fCheck(9)" class="btn btn-secondary" required/>
+        <input type="button" value="+" onclick="fCheck('+')" class="btn btn-info" required/>
+        <input type="button" value="( " onclick='fCheck("(")' class="btn btn-info" required/>
+      </p>
+      <p class="third">
+        <input type="button" value="4" onclick="fCheck(4)" class="btn btn-secondary" required/>
+        <input type="button" value="5" onclick="fCheck(5)" class="btn btn-secondary" required/>
+        <input type="button" value="6" onclick="fCheck(6)" class="btn btn-secondary" required/>
+        <input type="button" value="- " onclick="fCheck('-')" class="btn btn-info" required/>
+        <input type="button" value=") " onclick='fCheck(")")' class="btn btn-info" required/>
+      </p>
+      <p class="fourth">
+        <input type="button" value="1" onclick="fCheck(1)" class="btn btn-secondary" required/>
+        <input type="button" value="2" onclick="fCheck(2)" class="btn btn-secondary" required/>
+        <input type="button" value="3" onclick="fCheck(3)" class="btn btn-secondary" required/>
+        <input type="button" value="* " onclick="fCheck('*')" class="btn btn-info" required/>
+        <input type="button" value=". " onclick='fCheck(".")' class="btn btn-info" required/>
+      </p>
+      <p class="fifth">
+        <input type="button" value="0" onclick="fCheck(0)" class="btn btn-secondary" required/>
+        <input type="button" value="/" onclick="fCheck('/')" class="btn btn-info" required/>
+        <input type="button" value="=" onclick="fcalc()" class="btn btn-primary" required/>
+        <input type="button" value="C" onclick="fclear()" class="btn btn-danger" required/>
+        <input type="button" value="<" onclick='fback()' class="btn btn-warning" required/>
+      </p>
+  </form>
+  </div>
+</body>
+</html>
