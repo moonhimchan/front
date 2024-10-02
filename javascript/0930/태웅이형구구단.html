@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+    function gugudan(){
+
+    let startDan = document.getElementById("startDan").value;
+    let endDan = document.getElementById("endDan").value;
+    let colCount = document.getElementById("colCount").value;
+
+            if(startDan.trim() == "" || endDan.trim() == "" || colCount.trim() == ""){
+                alert("시작단과 끝단, 출력열 개수를 입력하세요.");
+                document.getElementById(startDan).focus();
+                return false;
+            }
+
+            startDan = parseInt(startDan);
+            endDan = parseInt(endDan);
+            colCount = parseInt(colCount);
+            
+            if(startDan<=0||endDan<=0||colCount<=0){
+                alert("입력값은 0보다 커야합니다.");
+                document.getElementById(startDan).focus();
+                return false;
+            }
+
+            let temp = 0;
+            // 1. 시작단값이 끝단값 보다 크면 끝단과 시작단의 값을 서로 바꿔주도록하자..
+            if(startDan>endDan){
+            temp = endDan;
+            endDan = startDan;
+            startDan = temp;
+            }
+
+            // 2. 출력열의 개수가 (끝단값 - 시작단값)+1 보다 크면 출력열의 개수 = (끝단값 - 시작단값)+1 으로 맞춰준다.  
+            if(colCount > (endDan - startDan + 1) ){
+                colCount = endDan - startDan + 1;
+            }
+
+            let tempHtmlString = "";
+
+            let result = 0;
+
+            // 자바스크립트에서 나눗셈 / 연산자는  소숫점으로 나온다.
+            // 몫 만을 구하기 위해서는 Math.floor() 나 parseInt() 로 소수점을 날려야한다.
+            let rowCount = Math.floor((endDan-startDan+1)/colCount);
+
+            let remainder = (endDan-startDan+1)%colCount;
+
+            // 나머지가 있다면 row 를 하나더 추가
+            if(remainder!=0) ++rowCount; 
+
+            let tempStartDan = 0;
+            
+            tempHtmlString = "<table id='tableGugudan' width='250px'>"
+
+            for(let r=0; r<rowCount; r++){
+
+                tempStartDan = startDan+(r*colCount);
+
+                let end = tempStartDan+colCount;
+
+                if(r==rowCount-1 && remainder!=0){
+                    end = tempStartDan+remainder;
+                } 
+
+                for(let i=1; i<=9; i++){
+
+                    tempHtmlString += "<tr>"
+
+                    for(let c=tempStartDan; c<end; c++){
+
+                        result = c*i;
+                        tempHtmlString += `<td style="text-align:left">${c}*${i}=${result}</td>`;
+                    }
+
+                    tempHtmlString += "</tr>"
+                }
+                
+                // 마지막이 아니라면 사이에 빈칸넣기
+                if(r!=rowCount-1){
+                tempHtmlString += '<tr><td colspan='+colCount+'><p><br/></p></td></tr>';
+                } 
+            }
+
+            tempHtmlString += "</table>"
+            demo.innerHTML = tempHtmlString;
+        }
+    </script>
+</head>
+<body>
+    
+    <h2>구구단</h2>
+
+    <p>시작단:<input type="number" id="startDan" autofocus/></p>
+    <p>끝단:<input type="number" id="endDan"/></p>
+    <p>출력열 개수:<input type="number" id="colCount"/></p>
+
+    <p><input type="button" value="구구단출력" xxxxonclick="gugudan()"/>
+    <input type="button" value="다시입력" xxxxonclick="location.reload()"/> </p>
+
+    <div id="demo"></div>
+
+</body>
+</html>

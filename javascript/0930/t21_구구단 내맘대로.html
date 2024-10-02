@@ -11,17 +11,43 @@
   <script>
     'use strict';
     function gugudan() {
-      let dan=document.getElementById("dan").value;
-      if(dan.trim()=="") {
-        alert("단을 입력하세요");
-        document.getElementById("dan").focus();
+      let startdan=document.getElementById("startdan").value;
+      let enddan=document.getElementById("enddan").value;
+      let colscount=document.getElementById("cols").value;
+
+      if(startdan.trim()=="" || enddan.trim()=="" || colscount.trim()=="") {
+        alert("시작단, 끝단, 출력열을 입력하세요");
         return;
       }
-      let temp='';
+      if(startdan<=0||enddan<=0||colscount<=0) {
+        alert("입력값은 0보다 커야합니다.");
+        return;
+      }
+      let randomsu=0;
+      if(startdan>enddan) {
+        randomsu=startdan;
+        startdan=enddan;
+        enddan=randomsu;
+      }
+      if(colscount>(enddan-startdan+1)) { //1번 의문
+        colcount=enddan-startdan+1;
+      }
+      let tempHtmlString="";
 
-      temp +=`<b>${dan}단</b><br/>`;
+      let result="";
+      
+      let rowcount= Math.floor((enddan-startdan+1)/colcount); //2번의문 --몫
+
+      let remainder = (enddan-startdan+1)%colcount; //3번의문 --나머지
+
+      if(r==rowcount-1 && remainder!=0) {
+        end
+      }
+      
+      let temp='';
+      temp +=`<b>${startdan}단</b><br/>`;
       for(let i=1; i<=9; i++) {
-        temp += `${dan} * ${i} = ${dan*i}`;
+        temp += `${startdan} * ${i} = ${startdan*i}`;
       }
       demo.innerHTML = temp;
     }
@@ -31,11 +57,29 @@
   <div>
     <h2>구구단</h2>
     <p>
-      <div><input type="number" name="dan" id="dan" class="form-control mb-2"></div>
-      <div><input type="button" value="구구단출력" onclick="gugudan(5)" class="btn btn-success form-control mb-2"></div>
+      <div>시작단<input type="number" name="startdan" id="startdan" class="form-control mb-2"></div>
+      <div>끝 단<input type="number" name="enddan" id="enddan" class="form-control mb-2"/></div>
+      <div>열의수<input type="number" name="cols" id="cols" class="form-control mb-2"/></div>
+
+      <div><input type="button" value="구구단출력" onclick="gugudan()" class="btn btn-success form-control mb-2"></div>
       <div><input type="button" value="다시입력" onclick="location.reload();" class="btn btn-warning form-control"></div>
     </p>
     <hr/>
   <div id="demo"></div>
 </body>
 </html>
+<!--
+1번의문 해결:
+예를들어 시작단:1 끝단:1이면 입력된 값은 1개 이므로 열의수는 1이므로
+2이상의 값을 가질수가 없다 따라서 
+startdan=1,enddan=1이면 (enddan-startdan+1)=1이다
+그런데 열의값이 1이상이 되면 안되므로 if문으로 조정했다.
+반면 startdan=1,enddan=9이면 (enddan-startdan+1)=9이다
+표현가능한 열의수는 1~9까지 이므로 (enddan-startdan+1)은 배열가능한 열의수이다.
+
+2번의문 미해결
+3번의문 
+
+-->
+
+
