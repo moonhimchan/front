@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-02 calendar.html</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        'use strict';
+
+        // 아래와 같이 작성하면 페이지를 로드할때 Cannot read properties of null (reading 'value') 가 바로 아래코드에서 발생한다.
+        // 이유는 스크립트코드는 제일 먼저 로드되고 HTML태그들은 제일 나중에 로드되기 때문이다. 아래 코드가 아이디로 idNumberYear 을 가진
+        // 태그를 찾을때 해당 태그는 아직 메모리에 올라와 있지 않기 때문이다. 이왕이면 태그에 접근하는 코드는 함수 안에 작성해서
+        // 태그에서 함수를 호출하면 그때 태그 객체에 접근하는 방식이 더 안전하다. 
+        let year = 0;
+        let month = 0;
+        
+        // let year = 0;
+        // let month = 0; 
+        // 태그에서 받아오는 값들은 string 타입이다. 그리고 하나라도 Number 가 아닌 타입이 더하기(+) 연산자로 연결되면 결과는 
+        // 무조건 string 타입이 나오게 되며 연산도 string concat 연산이 이루어진다. 
+
+        function renderCalendar(){
+
+            year = document.getElementById("idNumberYear").value;
+            month = document.getElementById("idNumberMonth").value-1; // 달 입력값으로부터 1을 빼야한다. 달은 0부터 시작하므로..
+
+
+            // 2. 원하는 년 월의 1일 입력해서 date 객체를 생성한다.
+            let dateObj = new Date(year, month, 1);
+            let firstDayOfTheMonth = dateObj.getDay();// 요일(일:0, 월:1, 화:2, 수:3.....)
+            let weekArr = ['일','월','화','수','목','금','토'];
+            
+            
+            
+            // 1. 원하는 년 월의 마지막 날짜를 구한다.(입력된 달+1 의 0일 구하면 입력된 달의 마지막 날짜가 된다. )
+            
+            dateObj = new Date(year, month+1, 0);
+            let lastDateOfTheMonth = dateObj.getDate();
+            console.log(parseInt(month+1)+"월의 마지막 일자:"+lastDateOfTheMonth);
+
+
+            let tempHtmlString = "<p><br /></p>"
+            // 1. 달력을 그려줄 테이블 만들기
+                tempHtmlString = "<table width='400px'> <tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>";
+                tempHtmlString +="<tr>"; // 날짜를 적어줄 새로운 열을 시작
+
+            let cnt = 0;
+            for(let i=0; i<=lastDateOfTheMonth+firstDayOfTheMonth; i++){
+                
+                if(i<firstDayOfTheMonth){ // 1일이 시작되는 요일 전까지에는 공백을 넣는다.
+                    tempHtmlString += "<td><p><p></td>";
+                }else{
+                    // 테이블은 열이 7개이다. 따라서 7의 배수마다 새로운 행을 열어준다.
+                    tempHtmlString += `<td><p>${++cnt}<p></td>`;
+                }
+
+                // 테이블은 열이 7개이다. 따라서 7의 배수마다 기존행을 닫는다.
+                if((i+1)%7==0){
+                    tempHtmlString += `</tr>`;
+                    // 아직 다음행에 쓸게 있다면 새로운 행을 열어준다.
+                    if(cnt<lastDateOfTheMonth) {
+                        tempHtmlString += `<tr>`;
+                    }
+                }
+
+                if(cnt==lastDateOfTheMonth) {
+                    tempHtmlString += `</tr></table>`;
+                    break;
+                }
+            }
+
+            // 달력 그려주지
+            document.getElementById("demo").innerHTML = tempHtmlString;
+        }
+
+    </script>
+</head>
+
+<body>
+    <p><br /></p>
+    <div class="container">
+        <p style="font-size:2em; color:#00ddff; font-weight: bold;">달력</p>
+        <p><label for="idNumberYear">년도를 선택해주세요:<input type="number" value="2024" id="idNumberYear"/></label></p>
+        <p><label for="idNumberMonth">월을 선택해주세요:<input type="number" value="1" id="idNumberMonth"/></label></p>
+        <input type="button" value="달력 보기" onclick="renderCalendar()"/>
+    </div>
+
+
+
+    <div id="demo"> 달력이 표시됩니다.</div>
+</body>
+
+</html>

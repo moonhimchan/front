@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gugudan with Custom Range and Columns</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 10px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+        .gugudan-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gugudan-row {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .gugudan-item {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단 출력</h1>
+    <label for="startDan">시작 단:</label>
+    <input type="number" id="startDan" min="1" max="9" placeholder="시작 단 입력"><br>
+
+    <label for="endDan">끝 단:</label>
+    <input type="number" id="endDan" min="1" max="9" placeholder="끝 단 입력"><br>
+
+    <label for="cols">열:</label>
+    <input type="number" id="cols" min="1" placeholder="열을 입력하세요"><br>
+
+    <button onclick="generateTables()">출력</button>
+
+    <div id="tables" class="gugudan-container"></div>
+
+    <script>
+        function generateTables() {
+            const startDan = parseInt(document.getElementById("startDan").value);
+            const endDan = parseInt(document.getElementById("endDan").value);
+            const cols = parseInt(document.getElementById("cols").value);
+            const tablesDiv = document.getElementById("tables");
+            tablesDiv.innerHTML = ""; // 기존 출력 초기화
+
+            // 입력 값 유효성 검사
+            if (isNaN(startDan) || isNaN(endDan) || isNaN(cols) || startDan < 1 || endDan > 9 || cols < 1) {
+                alert("올바른 시작 단, 끝 단, 열을 입력하세요.");
+                return;
+            }
+
+            // 정방향 또는 역방향으로 출력 결정
+            const step = startDan <= endDan ? 1 : -1; // 시작단이 작으면 정방향, 크면 역방향
+            let currentCol = 0;
+            let tableWrapper = document.createElement("div");
+            tableWrapper.className = "gugudan-row";
+            tablesDiv.appendChild(tableWrapper);
+
+            for (let dan = startDan; step > 0 ? dan <= endDan : dan >= endDan; dan += step) {
+                if (currentCol === cols) {
+                    // 새로운 행 생성
+                    tableWrapper = document.createElement("div");
+                    tableWrapper.className = "gugudan-row";
+                    tablesDiv.appendChild(tableWrapper);
+                    currentCol = 0;
+                }
+
+                let tableItem = document.createElement("div");
+                tableItem.className = "gugudan-item";
+
+                let table = document.createElement("table");
+                let caption = document.createElement("caption");
+                caption.innerText = `${dan}단`;
+                table.appendChild(caption);
+
+                for (let i = 1; i <= 9; i++) {
+                    let row = document.createElement("tr");
+                    let td1 = document.createElement("td");
+                    let td2 = document.createElement("td");
+                    let td3 = document.createElement("td");
+
+                    td1.innerText = `${dan}`;
+                    td2.innerText = `x`;
+                    td3.innerText = `${i} = ${dan * i}`;
+
+                    row.appendChild(td1);
+                    row.appendChild(td2);
+                    row.appendChild(td3);
+
+                    table.appendChild(row);
+                }
+
+                tableItem.appendChild(table);
+                tableWrapper.appendChild(tableItem);
+                currentCol++;
+            }
+        }
+    </script>
+</body>
+</html>

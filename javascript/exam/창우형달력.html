@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t14_날짜함수.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    function adjustMonthYear() {
+      let year = parseInt(document.getElementById('yy').value);
+      let month = parseInt(document.getElementById('mm').value);
+      // 월이 1보다 작으면 연도 감소 및 12월로 설정
+      if (month < 1) {
+        year -= 1;
+        month = 12;
+      }
+      // 월이 12보다 크면 연도 증가 및 1월로 설정
+      if (month > 12) {
+        year += 1;
+        month = 1;
+      }
+      // 업데이트된 연도와 월을 input 값에 반영
+      document.getElementById('yy').value = year;
+      document.getElementById('mm').value = month;
+    }
+    function dateCheck() {
+      adjustMonthYear(); // 연도 및 월 조정 함수 호출
+      // 입력된 연도와 월 가져오기
+      let year = parseInt(document.getElementById('yy').value);
+      let month = parseInt(document.getElementById('mm').value);
+      // 해당 월의 마지막 날짜 구하기
+      const lastDate = new Date(year, month, 0).getDate();
+      // 해당 월의 첫 번째 날의 요일 구하기
+      const firstDay = new Date(year, month - 1, 1).getDay();
+      // 요일 배열
+      const week = ['일', '월', '화', '수', '목', '금', '토'];
+      // 달력 HTML 생성
+      let calendar = "<table class='table table-bordered'><thead><tr>";
+      for (let i = 0; i < week.length; i++) {
+        calendar += "<th>" + week[i] + "</th>";
+      }
+      calendar += "</tr></thead><tbody><tr>";
+      // 첫 주 앞의 공백 채우기
+      for (let i = 0; i < firstDay; i++) {
+        calendar += "<td></td>";
+      }
+      // 날짜 채우기
+      let day = 1;
+      for (let i = firstDay; day <= lastDate; i++) {
+        if (i % 7 === 0 && i !== 0) {
+          calendar += "</tr><tr>"; // 새로운 행 시작
+        }
+        // 요일에 따라 색상 설정 (일요일: 빨강, 토요일: 파랑)
+        if (i % 7 === 0) {
+          // 일요일
+          calendar += `<td style='color: red;'>${day}</td>`;
+        } else if (i % 7 === 6) {
+          // 토요일
+          calendar += `<td style='color: blue;'>${day}</td>`;
+        } else {
+          // 나머지 요일
+          calendar += `<td>${day}</td>`;
+        }
+        day++;
+      }
+      calendar += "</tr></tbody></table>";
+      // 결과 출력
+      document.getElementById('demo').innerHTML = `
+        <h3>${year}년 ${month}월</h3>
+        ${calendar}
+      `;
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>달력 출력</h2>
+  <form name="myform">
+    <div class="mb-2">년도
+      <input type="number" name="yy" id="yy" value="2024" class="form-control" autofocus />
+    </div>
+    <div class="mb-2">월
+      <input type="number" name="mm" id="mm" value="10" class="form-control" oninput="adjustMonthYear()" />
+    </div>
+    <div class="mb-2">
+      <input type="button" value="달력 출력" onclick="dateCheck()" class="btn btn-success form-control" />
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+</body>
+</html>

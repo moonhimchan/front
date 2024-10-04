@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해당월 마지막 날짜.html</title>
+  <script>
+    'use strict'; 
+
+    function dateCheck() {
+    let year=document.getElementById("yy").value;
+    let month=document.getElementById("mm").value;
+    //let lastDate=new Date(year, month, 0)+"";  //Date(년도, 월, 일)에서 일이0이면 해당월의 마지막날이 나온다\
+    let lastDate=new Date(year, month, 0);
+    let day=lastDate.getDate();              
+    //let day=lastDate.substring(8,10);
+
+    demo.innerHTML = "마지막 날은"+ year + "년" + month + " 월: " + day +"일";
+    //demo.innerHTML=`<b>${year},${month},${day}</b>`;
+    }
+  
+  </script>
+</head>
+<body>
+  <p><br/></p>
+  <div class="container">
+  <h2>날짜함수 연습</h2>
+  <form name="myform">
+    <div class="mb-2">년도
+      <input type="number" name="yy" id="yy" value="2024" class="form-control" autofocus />
+    </div>
+    <div class="mb-2">월
+      <input type="number" name="mm" id="mm" value="10" class="form-control" />
+    </div>
+    <div class="mb-2">
+      <input type="button" value="마지막일자출력" onclick="dateCheck()" class="btn btn-success form-control" />
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+</body>
+</html>
+
+<!--
+var-중복 선언 가능. 재할당 가능.
+let-중복선언 불가. 재할당 가능.
+const-중복선언 불가. 재할당 불가. 
+-->
