@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t07이벤트.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    function newWindow() {
+      // window.open(url,"윈도우이름","옵션");
+      
+      let url = "https://www.naver.com";
+      let windowName = "newWindow";
+      let opt = "width=400px, height=350px, top=200px, left=100px";
+      opt += ', fullscreen=yes, scrolling=no ,resizable=no';
+
+      window.open(url, windowName, opt);
+    }
+
+    function newWindow2() {
+      let url = "t08_child.html";
+      let windowName = "newWindow";
+      let opt = "width=400px, height=350px, top=200px, left=100px";
+
+      window.open(url, windowName, opt);
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>새창 띄우기</h2>
+  <div class="mb-3">
+    <input type="button" value="새창띄우기" onclick="newWindow()" class="btn btn-success" />
+    <input type="button" value="새창띄우기2" onclick="newWindow2()" class="btn btn-primary" />
+  </div>
+  <div>
+    <input type="button" value="모달띄우기" class="btn btn-info" data-toggle="modal" data-target="#myModal" />
+  </div>
+
+  <!-- 아래로 모달 처리 -->
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">회원 아이디 검색 결과</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          검색결과<hr/>
+          성명1 : 홍길동1<br/>
+          성명2 : 홍길동2<br/>
+          성명3 : 홍길동3<br/>
+          성명4 : 홍길동4<br/>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

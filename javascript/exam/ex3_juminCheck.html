@@ -10,13 +10,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     'use strict';
+
     function jumin1Check() {
-      let jumin1 =document.getElementById("jumin1").value.trim();
-      if(jumin1.length==6) document.getElementById("jumin2").focus();
+      let jumin1 = document.getElementById("jumin1").value.trim();
+      if(jumin1.length == 6) document.getElementById("jumin2").focus();
     }
 
     function jumin2Check() {
-      if(window.event.keyCode==13) juminCheck();
+      if(window.event.keyCode == 13) juminCheck();
     }
 
     function juminCheck() {
@@ -24,7 +25,7 @@
       if(jumin.length != 13 || isNaN(jumin)) {
         alert("주민번호는 숫자만 입력하세요");
         document.getElementById("jumin1").value = "";
-        //document.getElementById("jumin2").value = "";
+        // document.getElementById("jumin2").value = "";
         document.getElementById("jumin2").focus();
         document.getElementById("jumin2").select();
         return;
